@@ -7,10 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
-/**
- * @author Cinth
- *
- */
 @Entity
 @Table (name = "paciente")
 public class Paciente{
@@ -18,16 +14,20 @@ public class Paciente{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "id_paciente")
 	private Integer idPaciente;
+	
 	@Column(name="nombre_paciente")
 	private String nombrePaciente;
+	
 	@Column(name="apellido_paciente")
 	private String apellidoPaciente;
+	
 	@Column(name="edad_paciente")
 	private Integer edadPaciente;
+	
 	@Column(nullable=false,name="numero_expediente",unique = true)
 	private String numeroExpediente;
-	@Column(nullable=false, name="password")
-	private String password;
+	
+	
 	
 	public Integer getIdPaciente() {
 		return idPaciente;
@@ -59,12 +59,7 @@ public class Paciente{
 	public void setNumeroExpediente(String numeroExpediente) {
 		this.numeroExpediente = numeroExpediente;
 	}
-	public String getPassword() {
-		return password;
-	}
-	public void setPassword(String password) {
-		this.password = password;
-	}
+
 	
 	
 }

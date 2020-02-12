@@ -14,14 +14,21 @@ public class Usuario {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_usuario")
 	private Integer idUsuario;
+	
 	@Column(name="nombre_usuario")
 	private	String nombreUsuario;
+	
 	@Column(name="apellido_usuario")
 	private String apellidoUsuario;
+	
 	@Column(name="nombre_corto_usuario")
 	private String nombreCortoUsuario;
+	
 	@Column(name="password")
 	private String password;
+	
+	
+	
 	public Integer getIdUsuario() {
 		return idUsuario;
 	}

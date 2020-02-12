@@ -16,14 +16,18 @@ public class Configuracion{
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name="id_configuracion")
 	private Integer idConfiguracion;
+	
 	@Column(name="ruta_almacenar")
 	private String rutaAlmacenar;
+	
 	@Column(name ="pdf_guardar")
 	private boolean pdfGuardar;
+	
 	@Column(name="xml_guardar")
 	private boolean xmlGuardar;
+	
 	@OneToOne
-	@JoinColumn(nullable=false,name="id_usuario")
+	@JoinColumn(name="id_usuario")
 	private Usuario usuario;
 	
 	
