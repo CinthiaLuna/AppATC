@@ -24,11 +24,11 @@ public class FonemaConsolidado {
 	private Integer bloqueFonemaConsolidado;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_fonema")
+	@JoinColumn(name = "id_fonema", referencedColumnName = "id_fonema")
 	private Fonema fonema;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_resultado")
+	@JoinColumn(name = "id_resultado", referencedColumnName = "id_resultado")
 	private Resultado resultado;
 
 	public Integer getIdFonemaConsolidado() {

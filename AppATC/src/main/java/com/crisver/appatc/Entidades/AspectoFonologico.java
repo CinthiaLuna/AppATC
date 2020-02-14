@@ -7,7 +7,6 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -57,12 +56,12 @@ public class AspectoFonologico {
 	@Column(name= "consolida_denominativo")
 	private boolean consolidaDenominativo;
 	
-	@OneToMany
-	@JoinColumn (name = "id_exploracion_fonologica")
+	@ManyToOne
+	@JoinColumn (name = "id_exploracion_fonologica", referencedColumnName = "id_exploracion_fonologica")
 	private ExploracionFonologica exploracionFonologica;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_fonema")
+	@JoinColumn (name = "id_fonema", referencedColumnName = "id_fonema")
 	private Fonema fonema;
 	
 	public Integer getIdAspectoFonologico() {

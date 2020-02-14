@@ -21,7 +21,7 @@ public class SustituyeRevaloracion {
 	private String fonemaSustituyeRevaloracion;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_revaloracion")
+	@JoinColumn (name = "id_revaloracion", referencedColumnName = "id_revaloracion")
 	private Revaloracion revaloracion;
 
 	

@@ -38,11 +38,11 @@ public class Seguimiento {
 	private String observaciones;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_modalidad")
+	@JoinColumn (name = "id_modalidad", referencedColumnName = "id_modalidad")
 	private Modalidad modalidad;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_paciente")
+	@JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
 
 	

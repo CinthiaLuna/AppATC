@@ -30,11 +30,11 @@ public class FonemaTrabajado {
 	private boolean consolidaRepetitivo;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_fonema")
+	@JoinColumn (name = "id_fonema", referencedColumnName = "id_fonema")
 	private Fonema fonema;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_seguimiento")
+	@JoinColumn (name = "id_seguimiento", referencedColumnName = "id_seguimiento")
 	private Seguimiento seguimiento;
 
 	

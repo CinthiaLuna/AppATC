@@ -27,7 +27,7 @@ public class Resultado {
 	private Integer bloquesTotal;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_paciente")
+	@JoinColumn (name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
 
 	public Integer getIdResultado() {

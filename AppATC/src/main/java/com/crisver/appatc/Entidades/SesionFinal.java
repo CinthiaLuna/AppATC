@@ -56,7 +56,7 @@ public class SesionFinal {
     private Boolean silabaFinalSs;
     
     @ManyToOne
-    @JoinColumn(name = "id_paciente")
+    @JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
     private Paciente paciente;
 
     

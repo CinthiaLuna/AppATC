@@ -21,7 +21,7 @@ public class SustituyeAspectoFonologico {
 	private String sustituyeFonema;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_aspecto_fonologico")
+	@JoinColumn (name = "id_aspecto_fonologico", referencedColumnName = "id_aspecto_fonologico")
 	private AspectoFonologico aspectoFonologico;
 
 	public Integer getIdSustituyeAspectoFonologico() {

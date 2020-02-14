@@ -14,11 +14,9 @@ import javax.persistence.Table;
 public class UsuarioPaciente {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	@OneToOne
-	@JoinColumn (nullable = false, name = "numero_expediente")
-	private Paciente numeroExpediente;
+	@Column (name = "numero_expediente")
+	private String numeroExpediente;
+	
 	@Column(nullable = false, name = "contrasena")
 	private String contrasena;
-	
-
 }

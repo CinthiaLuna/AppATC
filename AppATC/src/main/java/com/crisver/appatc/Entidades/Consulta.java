@@ -18,13 +18,12 @@ public class Consulta {
 	private Integer idConsulta;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_usuario")
+	@JoinColumn(name = "id_usuario", referencedColumnName = "id_usuario")
 	private Usuario usuario;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_paciente")
+	@JoinColumn(name = "id_paciente", referencedColumnName ="id_paciente")
 	private Paciente paciente;
-
 	
 	
 	public Integer getIdConsulta() {

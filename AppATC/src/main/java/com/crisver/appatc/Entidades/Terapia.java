@@ -29,7 +29,7 @@ public class Terapia {
 	private String enlace;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_fonema")
+	@JoinColumn (name = "id_fonema", referencedColumnName = "id_fonema")
 	private Fonema fonema;
 
 	public Integer getIdTerapia() {

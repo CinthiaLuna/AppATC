@@ -21,7 +21,7 @@ public class Fonema {
 	private String fonema;
 	
 	@ManyToOne
-	@JoinColumn(name = "id_clasificacion_fonema")
+	@JoinColumn(name = "id_clasificacion_fonema", referencedColumnName = "id_clasificacion_fonema")
 	private ClasificacionFonema clasificacionFonema;
 
 	

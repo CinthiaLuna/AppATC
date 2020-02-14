@@ -27,7 +27,7 @@ public class Configuracion{
 	private boolean xmlGuardar;
 	
 	@OneToOne
-	@JoinColumn(name="id_usuario")
+	@JoinColumn(name="id_usuario", referencedColumnName = "id_usuario")
 	private Usuario usuario;
 	
 	

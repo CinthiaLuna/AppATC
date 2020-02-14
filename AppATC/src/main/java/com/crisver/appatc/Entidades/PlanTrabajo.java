@@ -38,7 +38,7 @@ public class PlanTrabajo {
 	private String temporalidad;
 	
 	@OneToOne
-	@JoinColumn (name = "id_paciente")
+	@JoinColumn (name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
 
 	public Integer getIdPlanTrabajo() {

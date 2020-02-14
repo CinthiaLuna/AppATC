@@ -58,11 +58,11 @@ public class Revaloracion {
     private Boolean consolidaDenominativoSs;
     
     @ManyToOne
-    @JoinColumn(name = "id_sesion_final")
+    @JoinColumn(name = "id_sesion_final", referencedColumnName = "id_sesion_final")
     private SesionFinal sesionFinal;
     
     @ManyToOne
-    @JoinColumn(name = "id_fonema")
+    @JoinColumn(name = "id_fonema", referencedColumnName = "id_fonema")
     private Fonema fonema;
 
     

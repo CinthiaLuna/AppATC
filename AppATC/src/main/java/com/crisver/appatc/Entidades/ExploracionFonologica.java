@@ -80,7 +80,7 @@ public class ExploracionFonologica {
     private Boolean silabaIntermedia;
     
     @OneToOne
-	@JoinColumn(name = "id_paciente")
+	@JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
 
     
