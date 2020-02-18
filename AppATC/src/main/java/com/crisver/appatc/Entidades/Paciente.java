@@ -26,9 +26,12 @@ public class Paciente{
 	@Column(name="edad_paciente")
 	private Integer edadPaciente;
 	
+	@Column (name = "numero_expediente")
+	private String numero_expediente;
+	
 	@OneToOne
-	@JoinColumn( name="numero_expediente", referencedColumnName = "numero_expediente")
-	private UsuarioPaciente UsuarioPaciente;
+	@JoinColumn(name="id_usuario_appmovil", referencedColumnName = "id_usuario_appmovil")
+	private UsuarioAppMovil usuarioAppMovil;
 	
 	
 	
@@ -36,23 +39,36 @@ public class Paciente{
 	public Paciente () {
 		
 	}
-	
-	public Paciente(Integer idPaciente, String nombrePaciente, String apellidoPaciente, Integer edadPaciente, UsuarioPaciente usuarioPaciente) {
+		
+	public Paciente(Integer idPaciente, String nombrePaciente, String apellidoPaciente, Integer edadPaciente,
+			String numero_expediente, UsuarioAppMovil usuarioAppMovil) {
+		super();
 		this.idPaciente = idPaciente;
 		this.nombrePaciente = nombrePaciente;
 		this.apellidoPaciente = apellidoPaciente;
 		this.edadPaciente = edadPaciente;
-		UsuarioPaciente = usuarioPaciente;
+		this.numero_expediente = numero_expediente;
+		this.usuarioAppMovil = usuarioAppMovil;
 	}
-	
+
+	public String getNumero_expediente() {
+		return numero_expediente;
+	}
+
+	public void setNumero_expediente(String numero_expediente) {
+		this.numero_expediente = numero_expediente;
+	}
+
+	public UsuarioAppMovil getUsuarioAppMovil() {
+		return usuarioAppMovil;
+	}
+
+	public void setUsuarioAppMovil(UsuarioAppMovil usuarioAppMovil) {
+		this.usuarioAppMovil = usuarioAppMovil;
+	}
+
 	public Integer getIdPaciente() {
 		return idPaciente;
-	}
-	public UsuarioPaciente getUsuarioPaciente() {
-		return UsuarioPaciente;
-	}
-	public void setUsuarioPaciente(UsuarioPaciente usuarioPaciente) {
-		UsuarioPaciente = usuarioPaciente;
 	}
 	public void setIdPaciente(Integer idPaciente) {
 		this.idPaciente = idPaciente;
@@ -76,58 +92,9 @@ public class Paciente{
 		this.edadPaciente = edadPaciente;
 	}
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((UsuarioPaciente == null) ? 0 : UsuarioPaciente.hashCode());
-		result = prime * result + ((apellidoPaciente == null) ? 0 : apellidoPaciente.hashCode());
-		result = prime * result + ((edadPaciente == null) ? 0 : edadPaciente.hashCode());
-		result = prime * result + ((idPaciente == null) ? 0 : idPaciente.hashCode());
-		result = prime * result + ((nombrePaciente == null) ? 0 : nombrePaciente.hashCode());
-		return result;
-	}
 
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (!(obj instanceof Paciente))
-			return false;
-		Paciente other = (Paciente) obj;
-		if (UsuarioPaciente == null) {
-			if (other.UsuarioPaciente != null)
-				return false;
-		} else if (!UsuarioPaciente.equals(other.UsuarioPaciente))
-			return false;
-		if (apellidoPaciente == null) {
-			if (other.apellidoPaciente != null)
-				return false;
-		} else if (!apellidoPaciente.equals(other.apellidoPaciente))
-			return false;
-		if (edadPaciente == null) {
-			if (other.edadPaciente != null)
-				return false;
-		} else if (!edadPaciente.equals(other.edadPaciente))
-			return false;
-		if (idPaciente == null) {
-			if (other.idPaciente != null)
-				return false;
-		} else if (!idPaciente.equals(other.idPaciente))
-			return false;
-		if (nombrePaciente == null) {
-			if (other.nombrePaciente != null)
-				return false;
-		} else if (!nombrePaciente.equals(other.nombrePaciente))
-			return false;
-		return true;
-	}
 
-	@Override
-	public String toString() {
-		return "Paciente [idPaciente=" + idPaciente + ", nombrePaciente=" + nombrePaciente + ", apellidoPaciente="
-				+ apellidoPaciente + ", edadPaciente=" + edadPaciente + ", UsuarioPaciente=" + UsuarioPaciente + "]";
-	}
+	
 	
 	
 }
