@@ -1,5 +1,7 @@
 package com.crisver.appatc.Entidades;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -11,7 +13,7 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "paciente")
-public class Paciente{
+public class Paciente implements Serializable{
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column(name= "id_paciente")
@@ -91,9 +93,8 @@ public class Paciente{
 	public void setEdadPaciente(Integer edadPaciente) {
 		this.edadPaciente = edadPaciente;
 	}
-
-
-
+	
+	private static final long serialVersionUID = 1L;
 	
 	
 	
