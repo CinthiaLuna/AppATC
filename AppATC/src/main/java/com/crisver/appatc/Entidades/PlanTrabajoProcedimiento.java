@@ -19,7 +19,7 @@ public class PlanTrabajoProcedimiento {
 	
 	@ManyToOne
 	@JoinColumn(name="id_procedimiento", referencedColumnName = "id_procedimiento")
-	private Procedimiento procedimiento;
+	private Procedimiento procedimiento; 
 	
 	@ManyToOne
 	@JoinColumn(name = "id_plan_trabajo", referencedColumnName = "id_plan_trabajo")

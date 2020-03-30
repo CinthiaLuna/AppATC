@@ -1,24 +1,32 @@
 package com.crisver.appatc.Entidades;
 
+import java.io.Serializable;
 import java.security.Timestamp;
+import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
+
 
 @Entity
 @Table (name="exploracion_fonologica")
-public class ExploracionFonologica {
+public class ExploracionFonologica implements Serializable {
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "id_exploracion_fonologica")
 	private Integer idExploracionFonologica;
 	
+
 	@Column (name = "fecha_exploracion_fonlogica")
 	private Timestamp fechaExploracionFonlogica;
 	
@@ -79,10 +87,10 @@ public class ExploracionFonologica {
     @Column(name = "silaba_intermedia")
     private Boolean silabaIntermedia;
     
-    @OneToOne
+    @ManyToOne  (fetch = FetchType.LAZY)
 	@JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
-
+    
     
     
 	public Integer getIdExploracionFonologica() {

@@ -1,5 +1,6 @@
 package com.crisver.appatc.Entidades;
 
+import java.io.Serializable;
 import java.security.Timestamp;
 
 import javax.persistence.Column;
@@ -8,12 +9,13 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
-import javax.persistence.OneToOne;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
 @Table (name = "plan_trabajo")
-public class PlanTrabajo {
+public class PlanTrabajo implements Serializable{
+	 private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue (strategy = GenerationType.IDENTITY)
 	@Column (name = "id_plan_trabajo")
@@ -37,7 +39,7 @@ public class PlanTrabajo {
 	@Column(name = "temporalidad")
 	private String temporalidad;
 	
-	@OneToOne
+	@ManyToOne
 	@JoinColumn (name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
 
