@@ -16,4 +16,6 @@ import com.crisver.appatc.Repositorios.ExploracionFonologicaRepositorio;
 public interface ExploracionFonologicaService {
 	
 public List <ExploracionFonologica> getExploracionFonologicaPorIdPaciente(Integer idPaciente);
+
+public ExploracionFonologica getExploracionFonologica(Integer idExploracionFonologica);
 }

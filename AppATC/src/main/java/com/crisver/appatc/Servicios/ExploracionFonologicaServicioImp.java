@@ -1,6 +1,7 @@
 package com.crisver.appatc.Servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -20,6 +21,12 @@ private ExploracionFonologicaRepositorio exploracionFonRepo;
 public List <ExploracionFonologica> getExploracionFonologicaPorIdPaciente(Integer idPaciente){
 	List<ExploracionFonologica> exploracion = this.exploracionFonRepo.findByPacienteIdPaciente(idPaciente);
 	return exploracion;
+}
+
+@Override
+public ExploracionFonologica getExploracionFonologica(Integer idExploracionFonologica) {
+	Optional <ExploracionFonologica> optional = this.exploracionFonRepo.findById(idExploracionFonologica);
+	return optional.get();
 }
 
 }

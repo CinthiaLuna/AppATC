@@ -1,7 +1,7 @@
 package com.crisver.appatc.Entidades;
 
 import java.io.Serializable;
-import java.security.Timestamp;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class PlanTrabajo implements Serializable{
 	private Integer idPlanTrabajo;
 	
 	@Column (name = "fecha_plan_trabajo")
-	private Timestamp fechaPlanTrabajo;
+	private LocalDateTime fechaPlanTrabajo;
 	
 	@Column (name = "estado_plan_trabajo")
 	private char estadoPlanTrabajo;
@@ -51,11 +51,11 @@ public class PlanTrabajo implements Serializable{
 		this.idPlanTrabajo = idPlanTrabajo;
 	}
 
-	public Timestamp getFechaPlanTrabajo() {
+	public LocalDateTime getFechaPlanTrabajo() {
 		return fechaPlanTrabajo;
 	}
 
-	public void setFechaPlanTrabajo(Timestamp fechaPlanTrabajo) {
+	public void setFechaPlanTrabajo(LocalDateTime fechaPlanTrabajo) {
 		this.fechaPlanTrabajo = fechaPlanTrabajo;
 	}
 

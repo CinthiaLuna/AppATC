@@ -1,19 +1,15 @@
 package com.crisver.appatc.Entidades;
 
 import java.io.Serializable;
-import java.security.Timestamp;
-import java.util.List;
+import java.time.LocalDateTime;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
-import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 
@@ -28,10 +24,10 @@ public class ExploracionFonologica implements Serializable {
 	
 
 	@Column (name = "fecha_exploracion_fonlogica")
-	private Timestamp fechaExploracionFonlogica;
+	private LocalDateTime fechaExploracionFonlogica;
 	
     @Column(name = "estado_exploracion_fonologica")
-    private char estadoExploracionFonologica;
+    private String estadoExploracionFonologica;
 	
     @Column(name = "nivel_lenguaje_balbuceo")
     private Boolean nivelLenguajeBalbuceo;
@@ -87,7 +83,7 @@ public class ExploracionFonologica implements Serializable {
     @Column(name = "silaba_intermedia")
     private Boolean silabaIntermedia;
     
-    @ManyToOne  (fetch = FetchType.LAZY)
+    @ManyToOne
 	@JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
     
@@ -100,20 +96,22 @@ public class ExploracionFonologica implements Serializable {
 	public void setIdExploracionFonologica(Integer idExploracionFonologica) {
 		this.idExploracionFonologica = idExploracionFonologica;
 	}
+	
+	
 
-	public Timestamp getFechaExploracionFonlogica() {
+	public LocalDateTime getFechaExploracionFonlogica() {
 		return fechaExploracionFonlogica;
 	}
 
-	public void setFechaExploracionFonlogica(Timestamp fechaExploracionFonlogica) {
+	public void setFechaExploracionFonlogica(LocalDateTime fechaExploracionFonlogica) {
 		this.fechaExploracionFonlogica = fechaExploracionFonlogica;
 	}
 
-	public char getEstadoExploracionFonologica() {
+	public String getEstadoExploracionFonologica() {
 		return estadoExploracionFonologica;
 	}
 
-	public void setEstadoExploracionFonologica(char estadoExploracionFonologica) {
+	public void setEstadoExploracionFonologica(String estadoExploracionFonologica) {
 		this.estadoExploracionFonologica = estadoExploracionFonologica;
 	}
 
