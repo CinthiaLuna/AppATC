@@ -25,5 +25,6 @@ public class PlanTrabajoProcedimientoServiceImp implements PlanTrabajoProcedimie
 		List<PlanTrabajoProcedimiento> procedimientosPorIdPaciente = this.planTrabajoProcedimientoRepo.findByPacienteIdPaciente(idPaciente);
 		return procedimientosPorIdPaciente;
 	}
+	
 
 }

@@ -28,7 +28,7 @@ public class UsuarioAppMovil implements Serializable{
 	@Column(name = "numero_expediente")
 	private String numeroExpediente;
 
-
+	
 
 	public String getUsername() {
 		return username;

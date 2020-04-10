@@ -1,10 +1,14 @@
 package com.crisver.appatc.Servicios;
 
-import java.util.Arrays;
+
+import java.util.ArrayList;
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -17,16 +21,21 @@ import com.crisver.appatc.Repositorios.UsuarioAppMovilRepositorio;
 @Service
 public class UsuarioAppMovilServiceIm implements IUsuarioAppMovilService, UserDetailsService{
 	
+	private Logger logger = LoggerFactory.getLogger(UsuarioAppMovilServiceIm.class);
+	
 	@Autowired
 	private UsuarioAppMovilRepositorio usuarioAppMovilRepositorio;
 
 	@Override
+	@Transactional(readOnly = true)
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 		UsuarioAppMovil usuarioAppMovil  = usuarioAppMovilRepositorio.findByUsername(username);
+		List<GrantedAuthority> authorities = new ArrayList<>();
 		if (usuarioAppMovil == null) {
-			throw new UsernameNotFoundException("Usuario no valido");
+			logger.error("Usuario no valido: " + username);
+			throw new UsernameNotFoundException("Usuario no valido: " + username);
 		}
-		return new org.springframework.security.core.userdetails.User(usuarioAppMovil.getNumeroExpediente(), usuarioAppMovil.getPassword(), Arrays.asList(new SimpleGrantedAuthority("ROLE ADMIN")));
+		return new User(usuarioAppMovil.getUsername(), usuarioAppMovil.getPassword(), true, true, true, true, authorities);
 	}
 
 	@Override

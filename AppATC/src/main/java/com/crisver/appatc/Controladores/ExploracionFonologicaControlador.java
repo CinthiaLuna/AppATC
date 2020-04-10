@@ -1,7 +1,6 @@
 package com.crisver.appatc.Controladores;
 
 import java.util.List;
-import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -15,7 +14,7 @@ import com.crisver.appatc.Entidades.ExploracionFonologica;
 import com.crisver.appatc.Servicios.ExploracionFonologicaService;
 
 @RestController
-@RequestMapping(path="/api/exploracion_fonologica")
+@RequestMapping(path="/api/oauth2/exploracion_fonologica")
 public class ExploracionFonologicaControlador {
 	
 	@Autowired
@@ -36,6 +35,16 @@ public class ExploracionFonologicaControlador {
 		ExploracionFonologica exploracionFonologica = exploracionFonologicaServicio.getExploracionFonologica(idExploracionFonologica);
 		if(exploracionFonologica != null){
 			return new ResponseEntity<>(exploracionFonologica,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping()
+	public ResponseEntity<?> getExploracionFonologicaPorUserName() {
+		List<ExploracionFonologica> exploracionesFonologicaPorUsername = exploracionFonologicaServicio.getExploracionFonologicaPorUsername();
+		if(exploracionesFonologicaPorUsername != null){
+			return new ResponseEntity<>(exploracionesFonologicaPorUsername,HttpStatus.OK);
 		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
