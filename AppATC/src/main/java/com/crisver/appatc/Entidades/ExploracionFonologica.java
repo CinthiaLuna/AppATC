@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 
 @Entity
 @Table (name="exploracion_fonologica")
@@ -24,6 +26,7 @@ public class ExploracionFonologica implements Serializable {
 	
 
 	@Column (name = "fecha_exploracion_fonlogica")
+	@JsonFormat(pattern="dd-MM-yyyy")
 	private LocalDateTime fechaExploracionFonlogica;
 	
     @Column(name = "estado_exploracion_fonologica")
