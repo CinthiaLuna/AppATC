@@ -40,7 +40,7 @@ public class ExploracionFonologicaControlador {
 		}
 	}
 	
-	@GetMapping()
+	@GetMapping("/paciente")
 	public ResponseEntity<?> getExploracionFonologicaPorUserName() {
 		List<ExploracionFonologica> exploracionesFonologicaPorUsername = exploracionFonologicaServicio.getExploracionFonologicaPorUsername();
 		if(exploracionesFonologicaPorUsername != null){

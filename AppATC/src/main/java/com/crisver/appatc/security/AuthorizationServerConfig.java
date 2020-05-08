@@ -28,7 +28,7 @@ public class AuthorizationServerConfig extends AuthorizationServerConfigurerAdap
 	public void configure(ClientDetailsServiceConfigurer clients) throws Exception{
 		clients.inMemory()
 		.withClient("androidApp")
-		.secret(bCryptPasswordEncoder.encode("AplicacionProgresoPacientePassword"))
+		.secret(bCryptPasswordEncoder.encode("123"))
 		.authorizedGrantTypes("password", "refresh_token")
 		.scopes("read","write")
 		.accessTokenValiditySeconds(3600)

@@ -34,7 +34,7 @@ public class ExploracionFonologicaServicioImp implements ExploracionFonologicaSe
 	public List<ExploracionFonologica> getExploracionFonologicaPorUsername() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
 		List<ExploracionFonologica> exploracionUsername = this.exploracionFonRepo
-				.findByPacienteUsuarioAppMovilUsername(username);
+				.findByPacienteUsuarioAppMovilUsernameOrderByFechaExploracionFonlogicaDesc(username);
 		return exploracionUsername;
 	}
 
