@@ -27,4 +27,10 @@ public class PlanTrabajoServiceImp implements PlanTrabajoService{
 		return optional.get();
 	}
 
+	@Override
+	public PlanTrabajo getPlanTrabajoPorExploracionFonologica(Integer idExploracionFonologica) {
+		Optional <PlanTrabajo> optional = this.planTrabajoRepo.findByExploracionFonologicaIdExploracionFonologica(idExploracionFonologica);
+		return optional.get();
+	}
+
 }

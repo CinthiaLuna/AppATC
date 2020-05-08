@@ -14,7 +14,7 @@ import com.crisver.appatc.Entidades.PlanTrabajo;
 import com.crisver.appatc.Servicios.PlanTrabajoService;
 
 @RestController
-@RequestMapping(path="/api/plan_trabajo")
+@RequestMapping(path="api/oauth2/plan_trabajo/")
 public class PlanTrabajoControlador {
 	@Autowired
 	private PlanTrabajoService planTrabajoServicio;
@@ -38,5 +38,14 @@ public class PlanTrabajoControlador {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
 	}
-
+	
+	@GetMapping("exploracion_fonologica/{id_exploracion_fonologica}")
+	public ResponseEntity<?> getPlanTrabajoPorExploracionFonologica(@PathVariable("id_exploracion_fonologica") Integer idExploracionFonologica) {
+		PlanTrabajo planTrabajo = planTrabajoServicio.getPlanTrabajoPorExploracionFonologica(idExploracionFonologica);
+		if(planTrabajo != null){
+			return new ResponseEntity<>(planTrabajo,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
 }

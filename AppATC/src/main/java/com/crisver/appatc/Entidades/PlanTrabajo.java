@@ -10,6 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -42,6 +43,10 @@ public class PlanTrabajo implements Serializable{
 	@ManyToOne
 	@JoinColumn (name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
+	
+	@OneToOne
+	@JoinColumn (name = "id_exploracion_fonologica", referencedColumnName = "id_exploracion_fonologica")
+	private ExploracionFonologica exploracionFonologica;
 
 	public Integer getIdPlanTrabajo() {
 		return idPlanTrabajo;
@@ -105,6 +110,14 @@ public class PlanTrabajo implements Serializable{
 
 	public void setPaciente(Paciente paciente) {
 		this.paciente = paciente;
+	}
+
+	public ExploracionFonologica getExploracionFonologica() {
+		return exploracionFonologica;
+	}
+
+	public void setExploracionFonologica(ExploracionFonologica exploracionFonologica) {
+		this.exploracionFonologica = exploracionFonologica;
 	}
 	
 	

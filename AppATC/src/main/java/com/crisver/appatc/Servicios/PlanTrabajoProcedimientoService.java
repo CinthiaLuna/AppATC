@@ -9,5 +9,6 @@ public interface PlanTrabajoProcedimientoService {
 	public List <PlanTrabajoProcedimiento> getPlanTrabajoProcedimientoPorIdPlanTrabajo(Integer idPlanTrabajo);
 	
 	public List <PlanTrabajoProcedimiento> getPlanTrabajoProcedimientoPorIdPaciente(Integer idPaciente);
+	
 
 }
