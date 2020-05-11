@@ -40,9 +40,32 @@ public class ExploracionFonologicaControlador {
 		}
 	}
 	
-	@GetMapping("/paciente")
-	public ResponseEntity<?> getExploracionFonologicaPorUserName() {
-		List<ExploracionFonologica> exploracionesFonologicaPorUsername = exploracionFonologicaServicio.getExploracionFonologicaPorUsername();
+	@GetMapping("/pacienteAsc")
+	public ResponseEntity<?> getExploracionFonologicaPorUserNameAsc() {
+		List<ExploracionFonologica> exploracionesFonologicaPorUsername = exploracionFonologicaServicio.getExploracionFonologicaPorUsernameAsc();
+		for(ExploracionFonologica exploracionFonologica: exploracionesFonologicaPorUsername) {
+			if(exploracionFonologica.getNivelLenguajeOraciones().equals(true)) {exploracionFonologica.setNivelNumero(7);}
+			else if(exploracionFonologica.getNivelLenguajeFrases().equals(true)) { exploracionFonologica.setNivelNumero(6);}
+			else if(exploracionFonologica.getNivelLenguajePalabrasYuxtapuestas().equals(true)) {exploracionFonologica.setNivelNumero(5);}
+			else if(exploracionFonologica.getNivelLenguajePalabrasSueltas().equals(true)) {exploracionFonologica.setNivelNumero(4);}
+			else if(exploracionFonologica.getNivelLenguajeBisilabos().equals(true)) {exploracionFonologica.setNivelNumero(3);}
+			else if(exploracionFonologica.getNivelLenguajeMonosilabos().equals(true)) {exploracionFonologica.setNivelNumero(2);}
+			else if(exploracionFonologica.getNivelLenguajeBalbuceo().equals(true)) {exploracionFonologica.setNivelNumero(1);}
+			
+			if(exploracionFonologica.getGradoTrastorno().equals("Severo")) {exploracionFonologica.setGradoNumero(1);}
+			else if(exploracionFonologica.getGradoTrastorno().equals("Moderado")){exploracionFonologica.setGradoNumero(2);}
+			else if(exploracionFonologica.getGradoTrastorno().equals("Leve")) {exploracionFonologica.setGradoNumero(3);}
+		};
+		if(exploracionesFonologicaPorUsername != null){
+			return new ResponseEntity<>(exploracionesFonologicaPorUsername,HttpStatus.OK);
+		}else {
+			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+		}
+	}
+	
+	@GetMapping("/pacienteDesc")
+	public ResponseEntity<?> getExploracionFonologicaPorUserNameDesc() {
+		List<ExploracionFonologica> exploracionesFonologicaPorUsername = exploracionFonologicaServicio.getExploracionFonologicaPorUsernameDesc();
 		if(exploracionesFonologicaPorUsername != null){
 			return new ResponseEntity<>(exploracionesFonologicaPorUsername,HttpStatus.OK);
 		}else {

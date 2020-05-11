@@ -7,7 +7,9 @@ public interface ExploracionFonologicaService {
 	
 public List <ExploracionFonologica> getExploracionFonologicaPorIdPaciente(Integer idPaciente);
 
-public List <ExploracionFonologica> getExploracionFonologicaPorUsername();
+public List <ExploracionFonologica> getExploracionFonologicaPorUsernameAsc();
+
+public List <ExploracionFonologica> getExploracionFonologicaPorUsernameDesc();
 
 public ExploracionFonologica getExploracionFonologica(Integer idExploracionFonologica);
 }

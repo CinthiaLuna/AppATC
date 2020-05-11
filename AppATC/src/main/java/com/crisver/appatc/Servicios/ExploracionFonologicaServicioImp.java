@@ -31,7 +31,15 @@ public class ExploracionFonologicaServicioImp implements ExploracionFonologicaSe
 	}
 
 	@Override
-	public List<ExploracionFonologica> getExploracionFonologicaPorUsername() {
+	public List<ExploracionFonologica> getExploracionFonologicaPorUsernameAsc() {
+		String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
+		List<ExploracionFonologica> exploracionUsername = this.exploracionFonRepo
+				.findByPacienteUsuarioAppMovilUsernameOrderByFechaExploracionFonlogicaAsc(username);
+		return exploracionUsername;
+	}
+
+	@Override
+	public List<ExploracionFonologica> getExploracionFonologicaPorUsernameDesc() {
 		String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
 		List<ExploracionFonologica> exploracionUsername = this.exploracionFonRepo
 				.findByPacienteUsuarioAppMovilUsernameOrderByFechaExploracionFonlogicaDesc(username);

@@ -11,6 +11,7 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
+import javax.persistence.Transient;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 
@@ -90,8 +91,30 @@ public class ExploracionFonologica implements Serializable {
 	@JoinColumn(name = "id_paciente", referencedColumnName = "id_paciente")
 	private Paciente paciente;
     
+    @Transient
+    private Integer nivelNumero;
+    
+    @Transient
+    private Integer gradoNumero;
     
     
+
+	public Integer getNivelNumero() {
+		return nivelNumero;
+	}
+
+	public void setNivelNumero(Integer nivelNumero) {
+		this.nivelNumero = nivelNumero;
+	}
+
+	public Integer getGradoNumero() {
+		return gradoNumero;
+	}
+
+	public void setGradoNumero(Integer gradoNumero) {
+		this.gradoNumero = gradoNumero;
+	}
+
 	public Integer getIdExploracionFonologica() {
 		return idExploracionFonologica;
 	}
