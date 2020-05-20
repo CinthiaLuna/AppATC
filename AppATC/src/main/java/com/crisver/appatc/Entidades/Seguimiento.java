@@ -1,6 +1,7 @@
 package com.crisver.appatc.Entidades;
 
-import java.security.Timestamp;
+import java.io.Serializable;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -13,14 +14,16 @@ import javax.persistence.Table;
 
 @Entity
 @Table (name = "seguimiento")
-public class Seguimiento {
+public class Seguimiento  implements Serializable{
+	
+	private static final long serialVersionUID = 1L;
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	@Column (name = "id_seguimiento")
 	private Integer idSeguimiento;
 	
 	@Column (name = "fecha_seguimiento")
-	private Timestamp fechaSeguimiento;
+	private LocalDateTime  fechaSeguimiento;
 	
 	@Column (name = "estado_seguimiento")
 	private char estadoSeguimiento;
@@ -54,12 +57,13 @@ public class Seguimiento {
 	public void setIdSeguimiento(Integer idSeguimiento) {
 		this.idSeguimiento = idSeguimiento;
 	}
+	
 
-	public Timestamp getFechaSeguimiento() {
+	public LocalDateTime getFechaSeguimiento() {
 		return fechaSeguimiento;
 	}
 
-	public void setFechaSeguimiento(Timestamp fechaSeguimiento) {
+	public void setFechaSeguimiento(LocalDateTime fechaSeguimiento) {
 		this.fechaSeguimiento = fechaSeguimiento;
 	}
 
