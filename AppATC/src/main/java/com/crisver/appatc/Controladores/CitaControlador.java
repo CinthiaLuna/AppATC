@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.crisver.appatc.Entidades.Cita;
+import com.crisver.appatc.Entidades.ProgresoCitas;
 import com.crisver.appatc.Servicios.CitaService;
 
 
@@ -28,5 +29,30 @@ public class CitaControlador {
 		}else {
 			return new ResponseEntity<>(HttpStatus.NOT_FOUND);
 		}
+	}
+	
+	@GetMapping("/progreso_cita")
+	public ResponseEntity<?> getProgresoCitas() {
+		List<Cita> citasPorUserName = citaServicio.getCitaPorPaciente();
+		ProgresoCitas progresoCita = new ProgresoCitas();
+		for(Cita cita: citasPorUserName) {
+			if(cita.getBloque() >= progresoCita.getMayor()) {
+				progresoCita.setMayor(cita.getBloque());
+			}
+		};
+		for(Cita cita: citasPorUserName) {
+			if(cita.getBloque() == progresoCita.getMayor()) {
+				if(cita.getAsistenciaCita().equals(true)) {progresoCita.setAsistencias(1);}
+				else if(cita.getAsistenciaCita().equals(false)) {progresoCita.setFaltas(1);}
+				
+				if(cita.getAsistenciaCita().equals(null)) {
+					progresoCita.setSesionEvaluada(cita.getNumeroSesion()-1);
+				}
+				if(cita.getNumeroSesion() >= progresoCita.getSesionEvaluada()) {
+					progresoCita.setSesionEvaluada(cita.getNumeroSesion());
+				}
+			}
+		}; 
+		return new ResponseEntity<>(progresoCita,HttpStatus.OK);
 	}
 }

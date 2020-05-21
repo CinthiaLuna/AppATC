@@ -2,7 +2,7 @@ package com.crisver.appatc.Entidades;
 
 import java.io.Serializable;
 import java.time.LocalDate;
-
+import java.time.LocalTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -12,6 +12,8 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
+
+import com.fasterxml.jackson.annotation.JsonFormat;
 
 
 
@@ -38,23 +40,23 @@ public class Cita implements Serializable{
 	private String tipoCita;
 	
 	@Column (name = "fecha_cita")
+	@JsonFormat(pattern="dd-MMMM-yyyy")
 	private LocalDate fechaCita;
 	
+	@Column (name= "hora")
+	private LocalTime hora;
 	
 	@OneToOne
 	@JoinColumn (name = "id_seguimiento", referencedColumnName="id_seguimiento")
 	private Seguimiento seguimiento;
 	
-
+    
 	public Integer getIdCita() {
 		return idCita;
 	}
-
 	public Seguimiento getSeguimiento() {
 		return seguimiento;
 	}
-
-
 	public void setSeguimiento(Seguimiento seguimiento) {
 		this.seguimiento = seguimiento;
 	}
@@ -106,14 +108,12 @@ public class Cita implements Serializable{
 		this.fechaCita = fechaCita;
 	}
 
+	public LocalTime getHora() {
+		return hora;
+	}
 
+	public void setHora(LocalTime hora) {
+		this.hora = hora;
+	}
 
-
-
-
-	
-	
-	
-	
-	
 }
