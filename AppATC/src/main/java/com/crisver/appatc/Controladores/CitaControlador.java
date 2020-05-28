@@ -42,17 +42,20 @@ public class CitaControlador {
 		};
 		for(Cita cita: citasPorUserName) {
 			if(cita.getBloque() == progresoCita.getMayor()) {
-				if(cita.getAsistenciaCita().equals(true)) {progresoCita.setAsistencias(1);}
-				else if(cita.getAsistenciaCita().equals(false)) {progresoCita.setFaltas(1);}
-				
-				if(cita.getAsistenciaCita().equals(null)) {
-					progresoCita.setSesionEvaluada(cita.getNumeroSesion()-1);
+				if(cita.getAsistenciaCita() == null) {
+					progresoCita.setRestantes(1);
 				}
-				if(cita.getNumeroSesion() >= progresoCita.getSesionEvaluada()) {
-					progresoCita.setSesionEvaluada(cita.getNumeroSesion());
+				else if(cita.getAsistenciaCita().equals(true)) {
+					progresoCita.setSesionEvaluada(1);
+					progresoCita.setAsistencias(1);
+				}
+				else if(cita.getAsistenciaCita().equals(false)) {
+					progresoCita.setSesionEvaluada(1);
+					progresoCita.setFaltas(1);
 				}
 			}
-		}; 
+			
+		}; 		
 		return new ResponseEntity<>(progresoCita,HttpStatus.OK);
 	}
 }

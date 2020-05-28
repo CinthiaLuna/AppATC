@@ -33,14 +33,14 @@ public class Cita implements Serializable{
 	@Column (name = "numero_sesion")
 	private Integer numeroSesion;
 	
-	@Column (name = "asistencia_cita")
+	@Column (name = "asistencia_cita", nullable = true)
 	private Boolean asistenciaCita;
 	
 	@Column (name = "tipo_cita")
 	private String tipoCita;
 	
 	@Column (name = "fecha_cita")
-	@JsonFormat(pattern="dd-MMMM-yyyy")
+	@JsonFormat(pattern="M d yyyy")
 	private LocalDate fechaCita;
 	
 	@Column (name= "hora")

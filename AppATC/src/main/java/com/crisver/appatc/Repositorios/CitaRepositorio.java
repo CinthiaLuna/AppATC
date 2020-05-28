@@ -9,6 +9,6 @@ import com.crisver.appatc.Entidades.Cita;
 
 public interface CitaRepositorio extends JpaRepository<Cita, Integer>{
 	
-	public List<Cita> findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByBloque(String username);
+	public List<Cita> findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByFechaCitaDesc(String username);
 
 }

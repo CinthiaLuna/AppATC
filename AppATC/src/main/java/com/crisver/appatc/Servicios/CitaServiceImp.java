@@ -17,7 +17,7 @@ public class CitaServiceImp implements CitaService{
 	@Override
 	public List<Cita> getCitaPorPaciente() {
 			String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-			List<Cita> citasPaciente = this.CitaRepo.findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByBloque(username);
+			List<Cita> citasPaciente = this.CitaRepo.findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByFechaCitaDesc(username);
 			return citasPaciente;
 	}
 
