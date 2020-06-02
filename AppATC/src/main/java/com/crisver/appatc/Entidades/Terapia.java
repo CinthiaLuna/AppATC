@@ -27,9 +27,9 @@ public class Terapia implements Serializable{
 	@Column (name = "descripcion")
 	private String descripcion;
 	
-	@Lob
+
 	@Column (name = "imagen", nullable = false)
-	private Byte[] imagen;
+	private String imagen;
 	
 	@Column (name = "enlace")
 	private String enlace;
@@ -55,11 +55,11 @@ public class Terapia implements Serializable{
 		this.descripcion = descripcion;
 	}
 
-	public Byte[] getImagen() {
+	public String getImagen() {
 		return imagen;
 	}
 
-	public void setImagen(Byte[] imagen) {
+	public void setImagen(String imagen) {
 		this.imagen = imagen;
 	}
 
