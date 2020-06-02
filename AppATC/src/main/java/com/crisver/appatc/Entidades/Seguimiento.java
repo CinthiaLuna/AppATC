@@ -12,6 +12,8 @@ import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
+
 @Entity
 @Table (name = "seguimiento")
 public class Seguimiento  implements Serializable{
@@ -22,6 +24,7 @@ public class Seguimiento  implements Serializable{
 	@Column (name = "id_seguimiento")
 	private Integer idSeguimiento;
 	
+	@JsonFormat(pattern="d-MMMM-yyyy")
 	@Column (name = "fecha_seguimiento")
 	private LocalDateTime  fechaSeguimiento;
 	

@@ -12,12 +12,12 @@ import com.crisver.appatc.Repositorios.CitaRepositorio;
 @Service
 public class CitaServiceImp implements CitaService{
 	@Autowired
-	private CitaRepositorio CitaRepo;
+	private CitaRepositorio citaRepo;
 
 	@Override
 	public List<Cita> getCitaPorPaciente() {
 			String username = SecurityContextHolder.getContext().getAuthentication().getPrincipal().toString();
-			List<Cita> citasPaciente = this.CitaRepo.findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByFechaCitaDesc(username);
+			List<Cita> citasPaciente = this.citaRepo.findBySeguimientoPacienteUsuarioAppMovilUsernameOrderByFechaCitaDesc(username);
 			return citasPaciente;
 	}
 

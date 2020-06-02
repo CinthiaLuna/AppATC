@@ -21,6 +21,9 @@ public class Terapia implements Serializable{
 	@Column (name = "id_terapia")
 	private Integer idTerapia;
 	
+	@Column (name = "nombre_terapia")
+	private String nombreTerapia;
+	
 	@Column (name = "descripcion")
 	private String descripcion;
 	
@@ -32,8 +35,9 @@ public class Terapia implements Serializable{
 	private String enlace;
 	
 	@ManyToOne
-	@JoinColumn (name = "id_fonema", referencedColumnName = "id_fonema")
-	private Fonema fonema;
+	@JoinColumn(name = "id_procedimiento")
+	private Procedimiento procedimiento;
+	
 
 	public Integer getIdTerapia() {
 		return idTerapia;
@@ -67,12 +71,20 @@ public class Terapia implements Serializable{
 		this.enlace = enlace;
 	}
 
-	public Fonema getFonema() {
-		return fonema;
+	public String getNombreTerapia() {
+		return nombreTerapia;
 	}
 
-	public void setFonema(Fonema fonema) {
-		this.fonema = fonema;
+	public void setNombreTerapia(String nombreTerapia) {
+		this.nombreTerapia = nombreTerapia;
+	}
+
+	public Procedimiento getProcedimiento() {
+		return procedimiento;
+	}
+
+	public void setProcedimiento(Procedimiento procedimiento) {
+		this.procedimiento = procedimiento;
 	}
 	
 	

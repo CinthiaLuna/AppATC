@@ -17,12 +17,10 @@ public class Procedimiento {
 	
 	@Column (name = "procedimiento")
 	private String procedimiento;
+	
+	@Column(name= "imagen", nullable = false)
+	private String imagen;
 
-	
-	
-	public Integer getIdProcedimiento() {
-		return idProcedimiento;
-	}
 
 	public void setIdProcedimiento(Integer idProcedimiento) {
 		this.idProcedimiento = idProcedimiento;
@@ -32,8 +30,21 @@ public class Procedimiento {
 		return procedimiento;
 	}
 
+	public String getImagen() {
+		return imagen;
+	}
+
+	public void setImagen(String imagen) {
+		this.imagen = imagen;
+	}
+
 	public void setProcedimiento(String procedimiento) {
 		this.procedimiento = procedimiento;
+	}
+
+
+	public Integer getIdProcedimiento() {
+		return idProcedimiento;
 	}
 
 
